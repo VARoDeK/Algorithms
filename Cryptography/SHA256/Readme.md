@@ -1,5 +1,7 @@
 # SHA256 in C from scratch.
 
+## The code is implemented on the top of pseudo code given on Wikipedia.
+
 ---
 
 The algorithm works excellent. 
@@ -38,12 +40,21 @@ stored in the variable.
 `gcc -c sha256.c -o sha256.o`. This will create an object file.
 
 * Make another `c` file and include `sha256.h` in it. Then write you code of
-taking inut and showing result and all. The compile it :
+taking inut and showing result and all. Then compile it :
 `gcc sha256.o your_file.c -o your_file`. 
 
 * This structure was chosen so as if someone wanna build a C library.
 
 * The `Test.c` file has the code to take input from command line for my 
 implementation.
+
+---
+
+## References
+
+Wikipedia contributors. SHA-2. Wikipedia, The Free Encyclopedia. September 23, 
+2019, 18:08 UTC. Available at: 
+https://en.wikipedia.org/w/index.php?title=SHA-2&oldid=917408454. Accessed 
+September 30, 2019. 
 
 ---
