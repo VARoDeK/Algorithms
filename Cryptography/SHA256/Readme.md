@@ -1,7 +1,5 @@
 # SHA256 in C from scratch.
 
-## This code produces right result for only null string for now.
-
 ---
 
 The algorithm works excellent. 
@@ -19,9 +17,13 @@ for padding).
 
 ## How to use?
 
-* Just download the repo and run `make` command. A executable file `sha256` 
+* Just download the repo and run `make` command. An executable file `sha256` 
 will be created.
-* On command line, run: `./sha256 abc`, where 'abc' is your inout message.
+* On command line, run: `./sha256 abc`, where 'abc' is your input message.
+
+---
+
+## How files are working?
 
 * You can re-deign the way, the input is given to hashing algorithm.
 
@@ -30,5 +32,18 @@ variable `sha256sum`.
 
 * The function takes input in form of character array. And the final result is 
 stored in the variable.
+
+* The `sha256.c` contains all the function definitions. If you don't wanna use 
+`make` command, compile the `sha256.c` without linking: 
+`gcc -c sha256.c -o sha256.o`. This will create an object file.
+
+* Make another `c` file and include `sha256.h` in it. Then write you code of
+taking inut and showing result and all. The compile it :
+`gcc sha256.o your_file.c -o your_file`. 
+
+* This structure was chosen so as if someone wanna build a C library.
+
+* The `Test.c` file has the code to take input from command line for my 
+implementation.
 
 ---
