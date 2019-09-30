@@ -1,10 +1,10 @@
-# SHA256 in C from scratch. (Still in development)
+# SHA256 in C from scratch.
 
 ## This code produces right result for only null string for now.
 
 ---
 
-From cryptography and encryption point of view, the algorithm works excellent. 
+The algorithm works excellent. 
 
 * A unique 256 bit hash is generated for every unique input.
 
@@ -12,14 +12,8 @@ From cryptography and encryption point of view, the algorithm works excellent.
 
 * Even a small change in input message, changes the hash value drastically.
 
-* It can encrypt the message of upto 2^64 bytes long.
-
----
-
-The only problem is, for any input (excpet null string or empty message) it is
- not generating the output value which sha256 should generate. Maybe some 
-error in implementation. The code is implemented from the pseudocode given on
-wikipedia.
+* It can encrypt the message of upto (2^64-3) bytes long. (The 3 bytes are used 
+for padding).
 
 ---
 
