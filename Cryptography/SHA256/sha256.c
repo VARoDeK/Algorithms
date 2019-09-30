@@ -59,6 +59,7 @@ static void msg_preprocess(
                            uint64_t *final_len
                           ){
         uint64_t original_len = 0x0;
+	uint64_t original_bit_len = 0x0;
         uint64_t len = 0x0;
         uint64_t i;
         uint64_t k;
@@ -76,6 +77,8 @@ static void msg_preprocess(
    * 1 byte to add null character.
    * Thus, len = msg_len + 1 + k + 8 + 1
    */
+
+  original_bit_len = original_len * 8;
 
   k = ((original_len + 9) & mod6);
   
@@ -100,14 +103,14 @@ static void msg_preprocess(
   len = len + 8;
   i = len;
   msg[i--] = '\0';
-  msg[i--] = (unsigned char)original_len;
-  msg[i--] = (unsigned char)(original_len >> 8);
-  msg[i--] = (unsigned char)(original_len >> 16);
-  msg[i--] = (unsigned char)(original_len >> 24);
-  msg[i--] = (unsigned char)(original_len >> 32);
-  msg[i--] = (unsigned char)(original_len >> 40);
-  msg[i--] = (unsigned char)(original_len >> 48);
-  msg[i--] = (unsigned char)(original_len >> 56);
+  msg[i--] = (unsigned char)original_bit_len;
+  msg[i--] = (unsigned char)(original_bit_len >> 8);
+  msg[i--] = (unsigned char)(original_bit_len >> 16);
+  msg[i--] = (unsigned char)(original_bit_len >> 24);
+  msg[i--] = (unsigned char)(original_bit_len >> 32);
+  msg[i--] = (unsigned char)(original_bit_len >> 40);
+  msg[i--] = (unsigned char)(original_bit_len >> 48);
+  msg[i--] = (unsigned char)(original_bit_len >> 56);
 
   *final_msg = msg;
   *final_len = len;
